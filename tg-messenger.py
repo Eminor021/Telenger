@@ -35,7 +35,8 @@ while True:
             )
             UID = int(RESPONSE.json()['result'][i]['update_id'])
     UpLis.close()
-    UpLis = open('/home/pinocchio/Documents/PinoPy/mrpinotmp.txt','w')
+    UpLis = open('file','w')
+    ### open the file again !
     UpLis.writelines(str(UID))
     UpLis.close()
     sleep(2)
