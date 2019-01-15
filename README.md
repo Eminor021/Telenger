@@ -1,6 +1,10 @@
 # TG-messenger
 It's a simple telegram bot! people who are reported and can't send you a message, they can use this bot to Communicate with you!
-# How to use it!
-Simply just make a bot on telegram ( using 'botfather' bot ) and config the program with the token of your bot and set a proxy if you needed. Done! run it using python 3.
-# what's the .txt file!
-I almost forgot it! all you have to do is: Open a text file on your computer and wite 000000000 on it; then save it and put it's adress in the source code when your configing it!
+# How to config
+Make a bot on telegram using 'botfather'bot;
+open the source code, put the token on it;
+put your numberical on it, too ( you can get it from 'userinfobot' );
+make a .txt file on you computer, write 000000000 on it and put the adress of it on the source code; done.
+# how to use
+all the people have to do is to send any kind of messages to this bot & it'll be forwarded to you.
+If you wanna answer thir message, just replay it & write your message!
