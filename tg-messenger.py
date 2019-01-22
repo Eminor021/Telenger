@@ -6,10 +6,10 @@ session = requests.session()
 session.proxies = dict() ### proxy ( optional )
 
 API_TOKEN = str() ### token of the bot
-AdminID = str() ### numberical ID
+AdminID = str() ### caht ID
 UID = int()
 while True:
-    UpLis = open('file','r') ### adress of the .txt file ( put it instead of file )
+    UpLis = open('tmp.txt','r') 
     UID = int(UpLis.readline())
     COMMAND = 'getupdates?offset=%s' % str(UID+1)
     RESPONSE = session.get('https://api.telegram.org/bot%s/%s'%(API_TOKEN,COMMAND), proxies = session.proxies)
@@ -45,7 +45,7 @@ while True:
                 )
             UID = int(i['update_id'])
     UpLis.close()
-    UpLis = open('file','w') ### adress of the .txt file ( put it instead of file )
+    UpLis = open('tmp.txt','w')
     UpLis.writelines(str(UID))
     UpLis.close()
     sleep(2)
