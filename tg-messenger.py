@@ -6,7 +6,7 @@ session = requests.session()
 session.proxies = dict() ### proxy ( optional )
 
 API_TOKEN = str() ### token of the bot
-AdminID = str() ### caht ID
+AdminID = str() ### chat ID
 UID = int()
 while True:
     UpLis = open('tmp.txt','r') 
