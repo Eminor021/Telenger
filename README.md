@@ -1,5 +1,5 @@
 # TG-messenger
-It's a simple telegram bot! people who are reported and can't send you a message, they can use this bot to Communicate with you!
+people who can't directly send you their messeges can use this bot to comminucate with you.
 # How to config
 Make a bot on telegram using 'botfather'bot;
 open the source code, put the token & your own chat ID on it ( you can get it from 'userinfobot' );
