@@ -9,7 +9,7 @@ API_TOKEN = str() ### token of the bot
 AdminID = str() ### chat ID
 UID = int()
 while True:
-    UpLis = open('tmp.txt','r') 
+    UpLis = open('tmp.txt','r')
     UID = int(UpLis.readline())
     COMMAND = 'getupdates?offset=%s' % str(UID+1)
     RESPONSE = session.get('https://api.telegram.org/bot%s/%s'%(API_TOKEN,COMMAND), proxies = session.proxies)
@@ -17,11 +17,10 @@ while True:
         for i in RESPONSE.json()['result']:
             if i['message']['from']['id'] == int(AdminID):
                 try:
-                    COMMAND = 'forwardMessage'
-                    session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&from_chat_id=%s&message_id=%s'%(API_TOKEN,COMMAND,
+                    COMMAND = 'sendmessage'
+                    session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s'%(API_TOKEN, COMMAND,
                     (i['message']['reply_to_message']['forward_from']['id']),
-                    (i['message']['chat']['id']),
-                    (i['message']['message_id'])
+                    (i['message']['text']),
                     ),
                     proxies = session.proxies,
                     )
