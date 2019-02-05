@@ -16,32 +16,87 @@ while True:
     if len(RESPONSE.json()['result']) != 0:
         for i in RESPONSE.json()['result']:
             if i['message']['from']['id'] == int(AdminID):
-                try:
+                if i['message']['text'] == '/f':
+                    try:
+                        msgtmp = 'I\'ll forward the next message to this user! /c to cancel the operation!'
+                        COMMAND = 'sendmessage'
+                        session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s&reply_to_message_id=%s'%(API_TOKEN, COMMAND,
+                        AdminID,msgtmp,
+                        (i['message']['reply_to_message']['message_id'])
+                        ),
+                        proxies = session.proxies,
+                        )
+                        ChatIdTemp = i['message']['reply_to_message']['forward_from']['id']
+                        dntemp = False
+                        while not dntemp:
+                            COMMAND = 'getupdates?offset=%s' % str(UID+2)
+                            RESPONSE = session.get('https://api.telegram.org/bot%s/%s'%(API_TOKEN,COMMAND), proxies = session.proxies)
+                            for j in RESPONSE.json()['result']:
+                                if j['message']['from']['id'] == int(AdminID):
+                                    if j['message']['text'] == '/c':
+                                        dntemp = True
+                                    else:
+                                        MessageIdTemp = j['message']['message_id']
+                                        COMMAND = 'forwardMessage'
+                                        session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&from_chat_id=%s&message_id=%s'%(API_TOKEN,COMMAND,
+                                        ChatIdTemp,
+                                        AdminID,MessageIdTemp
+                                        ),
+                                        proxies = session.proxies,
+                                        )
+                                        dntemp = True
+                                        msgtmp = 'done :)'
+                                        COMMAND = 'sendmessage'
+                                        session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s&reply_to_message_id=%s'%(API_TOKEN, COMMAND,
+                                        AdminID,msgtmp,
+                                        (i['message']['message_id'])
+                                        ),
+                                        proxies = session.proxies,
+                                        )
+                    except:
+                        pass
+                else:
+                    try:
+                        COMMAND = 'sendmessage'
+                        session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s'%(API_TOKEN, COMMAND,
+                        (i['message']['reply_to_message']['forward_from']['id']),
+                        (i['message']['text']),
+                        ),
+                        proxies = session.proxies,
+                        )
+                    except:
+                        pass
+            else:
+                if i['message']['text'] == '/start':
+                    msgtmp = 'created by pino.\nhttps://github.com/PinoQxD\nleave your message!' ### starter message, pls don't tuoch it if it doesn't matter to you!
                     COMMAND = 'sendmessage'
-                    session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s'%(API_TOKEN, COMMAND,
-                    (i['message']['reply_to_message']['forward_from']['id']),
-                    (i['message']['text']),
+                    session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s&s&reply_to_message_id=%s'%(API_TOKEN, COMMAND,
+                    (i['message']['chat']['id']),
+                    msgtmp,
+                    (i['message']['message_id'])
                     ),
                     proxies = session.proxies,
                     )
-                except:
+                elif i['message']['text'][0] == '/':
                     pass
-            else:
-                COMMAND = 'sendmessage'
-                session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=Sent!+:)&reply_to_message_id=%s'%(API_TOKEN, COMMAND,
-                (i['message']['chat']['id']),
-                (i['message']['message_id'])
-                ),
-                proxies = session.proxies,
-                )
-                COMMAND = 'forwardMessage'
-                session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&from_chat_id=%s&message_id=%s'%(API_TOKEN,COMMAND,
-                AdminID,
-                (i['message']['chat']['id']),
-                (i['message']['message_id'])
-                ),
-                proxies = session.proxies,
-                )
+                else:
+                    msgtmp = 'sent :)'
+                    COMMAND = 'sendmessage'
+                    session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s&reply_to_message_id=%s'%(API_TOKEN, COMMAND,
+                    (i['message']['chat']['id']),
+                    msgtmp,
+                    (i['message']['message_id'])
+                    ),
+                    proxies = session.proxies,
+                    )
+                    COMMAND = 'forwardMessage'
+                    session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&from_chat_id=%s&message_id=%s'%(API_TOKEN,COMMAND,
+                    AdminID,
+                    (i['message']['chat']['id']),
+                    (i['message']['message_id'])
+                    ),
+                    proxies = session.proxies,
+                    )
             UID = int(i['update_id'])
     UpLis.close()
     UpLis = open('tmp.txt','w')
