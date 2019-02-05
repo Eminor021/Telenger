@@ -1,4 +1,4 @@
-# use the previous commits, there is some bugs on this one! ( not stable for now )
+# use the previous commits, there are some bugs on this one! ( not stable for now )
 # TG-messenger
 people who can't directly send you their messeges can use this bot to comminucate with you.
 # How to config
