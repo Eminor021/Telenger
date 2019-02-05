@@ -9,4 +9,4 @@ all the people have to do is to send any kind of messages to this bot & it'll be
 If you wanna answer thir message, just replay it & write your message!
 # how to make it to forward a message!
 simply just reply the message that you want the bot to forward a messaage in return and then type /f ...
-# pls don't edit the starter message if ypu can!
+# pls don't edit the starter message if you can!
