@@ -74,7 +74,7 @@ while True:
                         pass
             else:
                 if i['message']['text'] == '/start':
-                    msgtmp = 'created by pino.\nhttps://github.com/PinoQxD\nleave your message!'
+                    msgtmp = 'created by amoo amir.\nhttps://github.com/amooamirxd\nleave your message!'
                     COMMAND = 'sendmessage'
                     session.post('https://api.telegram.org/bot%s/%s?chat_id=%s&text=%s&s&reply_to_message_id=%s'%(API_TOKEN, COMMAND,
                     (i['message']['chat']['id']),
