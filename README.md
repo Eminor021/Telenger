@@ -10,7 +10,7 @@ people who can't directly send you their messeges can use this bot to comminucat
 
 4 - nano TG-messenger/tg-messenger.py
 
-5 - put what I told you by comments in the source code.
+5 - put what I told you by comments in the source code
 
 6 - cp Telibrary/Telibrary.py TG-messenger/
 
