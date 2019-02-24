@@ -40,7 +40,7 @@ while True:
             else:
                 try:
                     Bemessenger(i)
-                        updateid = i['update_id'] + 1
+                    updateid = i['update_id'] + 1
                 except:
                     pass
             updater.close()
