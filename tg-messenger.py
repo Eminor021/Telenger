@@ -27,8 +27,13 @@ def Bemessenger(Message):
     bot.SendText(Message['message']['reply_to_message']['forward_from']['id'],
     Message['message']['text'])
 
+def TellAdmin(Text,ReplyToMessageID = 0):
+    bot.SendText(bot.AdminID,Text,0,0,ReplyToMessageID)
+
+
 updater = open('/home/amoooamir/github/TG-messenger/tmp.txt','r')
 updateid = updater.readline()
+updater.close()
 
 while True:
     res = bot.Update(updateid)
@@ -39,11 +44,36 @@ while True:
                 updateid = i['update_id'] + 1
             else:
                 try:
-                    Bemessenger(i)
-                    updateid = i['update_id'] + 1
+                    if i['message']['text'] == '/For':
+                        TellAdmin('your next message will be forwarded to this youser; /C to cancel!'
+                        ,i['message']['reply_to_message']['message_id'])
+                        updateid = i['update_id'] + 1
+                        is_done = False
+                        while not is_done:
+                            tmp_res = bot.Update(updateid)
+                            if tmp_res.json()['result'] != 0:
+                                for j in tmp_res.json()['result']:
+                                    if str(j['message']['from']['id']) != bot.AdminID:
+                                        Getit(j)
+                                        print(j)
+                                        updateid = j['update_id'] + 1
+                                    else:
+                                        if j['message']['text'] == '/C':
+                                            TellAdmin('cancelled!',j['message']['message_id'])
+                                            updateid = j['update_id'] + 1
+                                            is_done = True
+                                        else:
+                                            bot.Forward(i['message']['reply_to_message']['forward_from']['id'],bot.AdminID,j['message']['message_id'])
+                                            updateid = j['update_id'] + 1
+                                            TellAdmin('done!',j['message']['message_id'])
+                                            updateid = j['update_id'] + 1
+                                            is_done = True
+                    else:
+                        Bemessenger(i)
+                        print('there!')
+                        updateid = i['update_id'] + 1
                 except:
                     pass
-            updater.close()
             updater = open('/home/amoooamir/github/TG-messenger/tmp.txt','w')
             updater.writelines(str(updateid))
             updater.close()
