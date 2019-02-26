@@ -1,4 +1,4 @@
-# TG-messenger
+# Telenger
 people who can't directly send you their messeges can use this bot to comminucate with you.
 # how to install
 
