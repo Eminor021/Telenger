@@ -30,8 +30,7 @@ def Bemessenger(Message):
 def TellAdmin(Text,ReplyToMessageID = 0):
     bot.SendText(bot.AdminID,Text,0,0,ReplyToMessageID)
 
-
-updater = open('/home/amoooamir/github/TG-messenger/tmp.txt','r')
+updater = open('tmp.txt','r')
 updateid = updater.readline()
 updater.close()
 
@@ -74,6 +73,6 @@ while True:
                         updateid = i['update_id'] + 1
                 except:
                     pass
-            updater = open('/home/amoooamir/github/TG-messenger/tmp.txt','w')
+            updater = open('tmp.txt','w')
             updater.writelines(str(updateid))
             updater.close()
