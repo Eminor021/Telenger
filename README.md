@@ -6,7 +6,7 @@ people who can't directly send you their messeges can use this bot to comminucat
 
 2 - git clone https://github.com/AmooAmirxD/Telibrary.git
 
-3 - git clone https://github.com/AmooAmirxD/TG-messenger.git
+3 - git clone https://github.com/AmooAmirxD/Telenger.git
 
 4 - nano TG-messenger/tg-messenger.py
 
