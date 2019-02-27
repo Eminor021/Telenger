@@ -23,12 +23,15 @@ def Getit(Message):
         Message['message']['chat']['id'],
         Message['message']['message_id'])
 
-def Bemessenger(Message):
-    bot.SendText(Message['message']['reply_to_message']['forward_from']['id'],
-    Message['message']['text'])
-
 def TellAdmin(Text,ReplyToMessageID = 0):
     bot.SendText(bot.AdminID,Text,0,0,ReplyToMessageID)
+
+def Bemessenger(Message):
+    if Message['message']['from']['id'] == bot.AdminID and Message['message']['text'] == '/Help':
+        TellAdmin('use /For to forward a message.',Message['message']['message_id'])
+    else:
+        bot.SendText(Message['message']['reply_to_message']['forward_from']['id'],
+        Message['message']['text'])
 
 updater = open('tmp.txt','r')
 updateid = updater.readline()
