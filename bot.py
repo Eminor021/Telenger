@@ -70,9 +70,10 @@ while True:
                                             TellAdmin('done!',j['message']['message_id'])
                                             updateid = j['update_id'] + 1
                                             is_done = True
+                    elif i['message']['text'] == '/Help':
+                        TellAdmin('reply a message to reply!\nuse /For to forward a message!')
                     else:
                         Bemessenger(i)
-                        print('there!')
                         updateid = i['update_id'] + 1
                 except:
                     pass
