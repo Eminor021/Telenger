@@ -47,7 +47,7 @@ while True:
             else:
                 try:
                     if i['message']['text'] == '/For':
-                        TellAdmin('your next message will be forwarded to this youser; /C to cancel!'
+                        TellAdmin('your next message will be forwarded to this user; /C to cancel!'
                         ,i['message']['reply_to_message']['message_id'])
                         updateid = i['update_id'] + 1
                         is_done = False
