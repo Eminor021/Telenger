@@ -12,8 +12,8 @@ people who can't directly send you their messeges can use this bot to comminucat
 
 5 - put what I told you by comments in the source code
 
-6 - cp Telibrary/Telibrary.py TG-messenger/
+6 - cp Telibrary/Telibrary.py Telenger/
 
-7 - python3 TG-messenger/tg-messenger.py
+7 - python3 Telenger/bot.py
 
 # other featurs will be added soon! ;)
