@@ -8,12 +8,12 @@ people who can't directly send you their messeges can use this bot to comminucat
 
 3 - git clone https://github.com/AmooAmirxD/Telenger.git
 
-4 - vim Telenger/bot.py
+4 - vim Telenger/main.py
 
-5 - put what I told you by comments in the source code
+5 - follow the comments
 
 6 - cp Telibrary/Telibrary.py Telenger/
 
-7 - python3 Telenger/bot.py
+7 - python3 Telenger/main.py
 
 # other featurs will be added soon! ;)
