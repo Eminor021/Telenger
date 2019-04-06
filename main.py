@@ -41,7 +41,6 @@ def main(updateid):
                                     for j in tmp_res.json()['result']:
                                         if str(j['message']['from']['id']) != bot.ADMINID:
                                             messnger.get_it(j)
-                                            print(j)
                                             updateid = j['update_id'] + 1
                                         else:
                                             if j['message']['text'] == '/C':
