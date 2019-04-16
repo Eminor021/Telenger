@@ -4,9 +4,9 @@ people who can't directly send you their messeges can use this bot to comminucat
 
 1 - open your terminal
 
-2 - git clone https://github.com/AmooAmirxD/Telibrary.git
+2 - git clone https://github.com/bigAmir/Telibrary.git
 
-3 - git clone https://github.com/AmooAmirxD/Telenger.git
+3 - git clone https://github.com/bigAmir/Telenger.git
 
 4 - vim Telenger/main.py
 
