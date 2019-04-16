@@ -15,7 +15,7 @@ class MessengerBot(object):
 ### starting the bot
                 if Message['message']['text'] == '/start':
                         self.BOT.send_text(Message['message']['chat']['id'],
-                        'created by amoo amir.\nhttps://github.com/amooamirxd\nstart talking!',
+                        'source code: \nhttps://github.com/bigAmir/Telenger/\nstart talking!',
                         0,0,Message['message']['message_id'])
 ### what if they were trying to spam the bot?!
                 elif Message['message']['text'][0] == '/':
